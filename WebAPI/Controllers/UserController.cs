@@ -26,14 +26,16 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public void Add(UserDto userDto)
+        public ObjectResult Add(UserDto userDto)
         {
             _userRepository.Add(new User(userDto.Name, userDto.Email, userDto.Password, userDto.TypeId));
             _userRepository.SaveChanges();
+
+            return Ok("Added successfully.");
         }
 
         [HttpPut("update")]
-        public void Update()
+        public ObjectResult Update(Guid id, UserDto userDto)
         {
             throw new NotImplementedException();
         }
@@ -41,7 +43,7 @@ namespace WebAPI.Controllers
 
 
         [HttpPut("delete")]
-        public void Delete()
+        public ObjectResult Delete(Guid id)
         {
             throw new NotImplementedException();
         }
