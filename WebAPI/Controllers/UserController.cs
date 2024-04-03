@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             _userRepository.Add(new User(userDto.Name, userDto.Email, userDto.Password, userDto.TypeId));
             _userRepository.SaveChanges();
 
-            return Ok("Added successfully.");
+            return Ok("Added successfully!");
         }
 
         [HttpPut("update")]
